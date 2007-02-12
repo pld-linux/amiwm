@@ -1,5 +1,5 @@
 Summary:	X11 Window Manager - Amiga Workbench like environment
-Summary(pl.UTF-8):   Zarządca okien X11 - środowisko podobne do Workbencha z Amigi
+Summary(pl.UTF-8):	Zarządca okien X11 - środowisko podobne do Workbencha z Amigi
 Name:		amiwm
 Version:	0.20pl48
 Release:	1
