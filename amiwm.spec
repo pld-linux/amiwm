@@ -1,5 +1,5 @@
 Summary:	X11 Window Manager - Amiga Workbench like environment
-Summary(pl):	Zarz±dca okien X11 - ¶rodowisko podobne do Workbencha z Amigi
+Summary(pl.UTF-8):   ZarzÄ…dca okien X11 - Å›rodowisko podobne do Workbencha z Amigi
 Name:		amiwm
 Version:	0.20pl48
 Release:	1
@@ -23,15 +23,15 @@ who has/wants to use UNIX workstations once in a while. It can also be
 used on the Amiga with the AmiWin X server, although this part needs
 some more work. 
 
-%description -l pl
-amiwm to zarz±dca okien X próbuj±cy uczyniæ ekran wygl±daj±cym i
-zachowuj±cym siê jak ekran Amiga(R) Workbencha(R). Jest w pe³ni
-funkcjonalny i mo¿e wykonywaæ wszystkie normalne czynno¶ci zarz±dcy
+%description -l pl.UTF-8
+amiwm to zarzÄ…dca okien X prÃ³bujÄ…cy uczyniÄ‡ ekran wyglÄ…dajÄ…cym i
+zachowujÄ…cym siÄ™ jak ekran Amiga(R) Workbencha(R). Jest w peÅ‚ni
+funkcjonalny i moÅ¼e wykonywaÄ‡ wszystkie normalne czynnoÅ›ci zarzÄ…dcy
 okien, takie jak przesuwanie czy zmiana rozmiaru okienek.
 
-Celem amiwm jest uprzyjemnienie ¿ycia fanom Amigi którzy musz± lub
-chc± u¿ywaæ czasem stacji uniksowych. Mo¿e byæ u¿ywany tak¿e na
-Amidze z X serwerem AmiWin, choæ ta czê¶æ wymaga jeszcze trochê
+Celem amiwm jest uprzyjemnienie Å¼ycia fanom Amigi ktÃ³rzy muszÄ… lub
+chcÄ… uÅ¼ywaÄ‡ czasem stacji uniksowych. MoÅ¼e byÄ‡ uÅ¼ywany takÅ¼e na
+Amidze z X serwerem AmiWin, choÄ‡ ta czÄ™Å›Ä‡ wymaga jeszcze trochÄ™
 pracy.
 
 %prep
