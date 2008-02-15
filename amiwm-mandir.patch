@@ -1,0 +1,15 @@
+--- amiwm0.20pl48/Makefile.in.old	2008-02-15 20:10:17.000000000 +0100
++++ amiwm0.20pl48/Makefile.in	2008-02-15 20:11:09.000000000 +0100
+@@ -12,9 +12,9 @@ LIBS = @X_LIBS@ @X_PRE_LIBS@ -Llibami -l
+ 	-lX11 @X_EXTRA_LIBS@ @LIBS@
+ prefix = @prefix@
+ exec_prefix = @exec_prefix@
+-bindir = $(exec_prefix)/bin
+-libdir = $(exec_prefix)/lib
+-mandir = $(prefix)/man
++bindir = @bindir@
++libdir = @libdir@
++mandir = @mandir@
+ INSTALL = @INSTALL@
+ LN_S = @LN_S@
+ RM = -rm -f
