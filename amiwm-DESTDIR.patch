@@ -1,0 +1,55 @@
+--- amiwm0.20pl48/Makefile.in.old	2008-02-15 19:57:13.000000000 +0100
++++ amiwm0.20pl48/Makefile.in	2008-02-15 19:59:10.000000000 +0100
+@@ -81,31 +81,32 @@ kbdlexer.c : kbdlexer.l
+ 	$(LEX) -t kbdlexer.l > kbdlexer.c
+ 
+ install : $(PROGS) $(MODULES) Xsession Xsession2 Xinitrc amiwm-init
+-	-mkdir -p $(AMIWM_HOME)
+-	$(INSTALL) -s requestchoice $(AMIWM_HOME)/requestchoice
+-	$(INSTALL) -s executecmd $(AMIWM_HOME)/executecmd
++	-mkdir -p $(DESTDIR)$(AMIWM_HOME)
++	-mkdir -p $(DESTDIR)$(bindir)
++	$(INSTALL) -s requestchoice $(DESTDIR)$(AMIWM_HOME)/requestchoice
++	$(INSTALL) -s executecmd $(DESTDIR)$(AMIWM_HOME)/executecmd
+ 	for module in $(MODULES); do \
+ 	  if [ "$$module" = "Background" ]; then \
+-	    $(INSTALL) $$module $(AMIWM_HOME)/$$module; \
++	    $(INSTALL) $$module $(DESTDIR)$(AMIWM_HOME)/$$module; \
+ 	  else \
+-	    $(INSTALL) -s $$module $(AMIWM_HOME)/$$module; \
++	    $(INSTALL) -s $$module $(DESTDIR)$(AMIWM_HOME)/$$module; \
+ 	  fi \
+ 	done
+-	$(INSTALL) -m 644 system.amiwmrc $(AMIWM_HOME)/system.amiwmrc
+-	$(INSTALL) -m 644 def_tool.info $(AMIWM_HOME)/def_tool.info
+-	$(INSTALL) -m 644 system.map $(AMIWM_HOME)/system.map
+-	$(INSTALL) -m 644 magicwb.map $(AMIWM_HOME)/magicwb.map
+-	$(INSTALL) -m 644 schwartz.map $(AMIWM_HOME)/schwartz.map
+-	$(INSTALL) -m 755 Xsession $(AMIWM_HOME)/Xsession
+-	$(INSTALL) -m 755 Xsession2 $(AMIWM_HOME)/Xsession2
+-	$(INSTALL) -m 755 Xinitrc $(AMIWM_HOME)/Xinitrc
+-	$(INSTALL) -m 755 amiwm-init $(AMIWM_HOME)/amiwm-init
+-	$(INSTALL) -s amiwm $(bindir)/amiwm
+-	$(INSTALL) -s ppmtoinfo $(bindir)/ppmtoinfo
+-	$(RM) $(bindir)/requestchoice
+-	$(LN_S) $(AMIWM_HOME)/requestchoice $(bindir)/requestchoice
+-	-mkdir -p $(mandir)/man1
+-	$(INSTALL) -m 644 amiwm.1 $(mandir)/man1/amiwm.1
++	$(INSTALL) -m 644 system.amiwmrc $(DESTDIR)$(AMIWM_HOME)/system.amiwmrc
++	$(INSTALL) -m 644 def_tool.info $(DESTDIR)$(AMIWM_HOME)/def_tool.info
++	$(INSTALL) -m 644 system.map $(DESTDIR)$(AMIWM_HOME)/system.map
++	$(INSTALL) -m 644 magicwb.map $(DESTDIR)$(AMIWM_HOME)/magicwb.map
++	$(INSTALL) -m 644 schwartz.map $(DESTDIR)$(AMIWM_HOME)/schwartz.map
++	$(INSTALL) -m 755 Xsession $(DESTDIR)$(AMIWM_HOME)/Xsession
++	$(INSTALL) -m 755 Xsession2 $(DESTDIR)$(AMIWM_HOME)/Xsession2
++	$(INSTALL) -m 755 Xinitrc $(DESTDIR)$(AMIWM_HOME)/Xinitrc
++	$(INSTALL) -m 755 amiwm-init $(DESTDIR)$(AMIWM_HOME)/amiwm-init
++	$(INSTALL) -s amiwm $(DESTDIR)$(bindir)/amiwm
++	$(INSTALL) -s ppmtoinfo $(DESTDIR)$(bindir)/ppmtoinfo
++	$(RM) $(DESTDIR)$(bindir)/requestchoice
++	$(LN_S) $(AMIWM_HOME)/requestchoice $(DESTDIR)$(bindir)/requestchoice
++	-mkdir -p $(DESTDIR)$(mandir)/man1
++	$(INSTALL) -m 644 amiwm.1 $(DESTDIR)$(mandir)/man1/amiwm.1
+ 
+ cde-install : Xresources.amiwm Amilogo.bm Amilogo.pm
+ 	-mkdir -p $(DT_DIR)/config/C/Xresources.d
