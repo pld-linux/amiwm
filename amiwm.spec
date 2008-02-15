@@ -3,13 +3,19 @@ Summary(pl.UTF-8):	Zarządca okien X11 - środowisko podobne do Workbencha z Ami
 Name:		amiwm
 Version:	0.20pl48
 Release:	1
-License:	LGPL
+License:	distributable
 Group:		X11/Window Managers
 Source0:	ftp://ftp.lysator.liu.se/pub/X11/wm/amiwm/%{name}%{version}.tar.gz
 # Source0-md5:	bfe907be9e94f6a47fec5181361176f2
+Patch0:		%{name}-yywrap.patch
+Patch1:		%{name}-DESTDIR.patch
+Patch2:		%{name}-mandir.patch
 URL:		http://www.lysator.liu.se/~marcus/amiwm.html
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
+BuildRequires:	bison
+BuildRequires:	flex
+BuildRequires:	xorg-lib-libSM-devel
+BuildRequires:	xorg-lib-libXmu-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,6 +42,9 @@ pracy.
 
 %prep
 %setup -q -n %{name}%{version}
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__autoconf}
@@ -49,19 +58,22 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir}/xsessions
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.en
-%lang(fr) %doc doc/*.fr
-%lang(ja) %doc doc/*.ja
+%doc README README.modules LICENSE
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
-%{_datadir}/xsessions/%{name}.desktop
+%dir %{_libdir}/%{name}
+%attr(755,root,root) %{_libdir}/%{name}/Background
+%attr(755,root,root) %{_libdir}/%{name}/def_tool.info
+%attr(755,root,root) %{_libdir}/%{name}/executecmd
+%attr(755,root,root) %{_libdir}/%{name}/Keyboard
+%attr(755,root,root) %{_libdir}/%{name}/requestchoice
+%{_libdir}/%{name}/*.map
+%{_libdir}/%{name}/X*
+%{_libdir}/%{name}/amiwm-init
+%{_libdir}/%{name}/system.amiwmrc
 %{_mandir}/man?/*
-%lang(fr) %{_mandir}/fr/man?/*
-%lang(ja) %{_mandir}/ja/man?/*
